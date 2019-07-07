@@ -4,7 +4,7 @@
 #
 Name     : perl-Test-Memory-Cycle
 Version  : 1.06
-Release  : 1
+Release  : 2
 URL      : https://cpan.metacpan.org/authors/id/P/PE/PETDANCE/Test-Memory-Cycle-1.06.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/P/PE/PETDANCE/Test-Memory-Cycle-1.06.tar.gz
 Summary  : Verifies code hasn't left circular references

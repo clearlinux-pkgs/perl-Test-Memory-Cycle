@@ -4,13 +4,14 @@
 #
 Name     : perl-Test-Memory-Cycle
 Version  : 1.06
-Release  : 3
+Release  : 4
 URL      : https://cpan.metacpan.org/authors/id/P/PE/PETDANCE/Test-Memory-Cycle-1.06.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/P/PE/PETDANCE/Test-Memory-Cycle-1.06.tar.gz
-Summary  : Verifies code hasn't left circular references
+Summary  : "Verifies code hasn't left circular references"
 Group    : Development/Tools
 License  : Artistic-2.0
 Requires: perl-Test-Memory-Cycle-license = %{version}-%{release}
+Requires: perl-Test-Memory-Cycle-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : perl(Devel::Cycle)
 BuildRequires : perl(PadWalker)
@@ -23,7 +24,6 @@ Test::Memory::Cycle -- A Perl module to check for memory leaks and circular memo
 Summary: dev components for the perl-Test-Memory-Cycle package.
 Group: Development
 Provides: perl-Test-Memory-Cycle-devel = %{version}-%{release}
-Requires: perl-Test-Memory-Cycle = %{version}-%{release}
 Requires: perl-Test-Memory-Cycle = %{version}-%{release}
 
 %description dev
@@ -38,8 +38,18 @@ Group: Default
 license components for the perl-Test-Memory-Cycle package.
 
 
+%package perl
+Summary: perl components for the perl-Test-Memory-Cycle package.
+Group: Default
+Requires: perl-Test-Memory-Cycle = %{version}-%{release}
+
+%description perl
+perl components for the perl-Test-Memory-Cycle package.
+
+
 %prep
 %setup -q -n Test-Memory-Cycle-1.06
+cd %{_builddir}/Test-Memory-Cycle-1.06
 
 %build
 export http_proxy=http://127.0.0.1:9/
@@ -64,7 +74,7 @@ make TEST_VERBOSE=1 test
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-Test-Memory-Cycle
-cp LICENSE %{buildroot}/usr/share/package-licenses/perl-Test-Memory-Cycle/LICENSE
+cp %{_builddir}/Test-Memory-Cycle-1.06/LICENSE %{buildroot}/usr/share/package-licenses/perl-Test-Memory-Cycle/25c5a7c500c8035c364e7ede17dce2bd2138a0f0
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -77,7 +87,6 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/Test/Memory/Cycle.pm
 
 %files dev
 %defattr(-,root,root,-)
@@ -85,4 +94,8 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/perl-Test-Memory-Cycle/LICENSE
+/usr/share/package-licenses/perl-Test-Memory-Cycle/25c5a7c500c8035c364e7ede17dce2bd2138a0f0
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/Test/Memory/Cycle.pm

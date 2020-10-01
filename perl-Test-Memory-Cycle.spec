@@ -4,7 +4,7 @@
 #
 Name     : perl-Test-Memory-Cycle
 Version  : 1.06
-Release  : 6
+Release  : 7
 URL      : https://cpan.metacpan.org/authors/id/P/PE/PETDANCE/Test-Memory-Cycle-1.06.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/P/PE/PETDANCE/Test-Memory-Cycle-1.06.tar.gz
 Summary  : "Verifies code hasn't left circular references"
@@ -12,6 +12,7 @@ Group    : Development/Tools
 License  : Artistic-2.0
 Requires: perl-Test-Memory-Cycle-license = %{version}-%{release}
 Requires: perl-Test-Memory-Cycle-perl = %{version}-%{release}
+Requires: perl(Devel::Cycle)
 BuildRequires : buildreq-cpan
 BuildRequires : perl(Devel::Cycle)
 BuildRequires : perl(PadWalker)

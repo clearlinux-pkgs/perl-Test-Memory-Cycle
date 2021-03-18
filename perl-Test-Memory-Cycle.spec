@@ -4,7 +4,7 @@
 #
 Name     : perl-Test-Memory-Cycle
 Version  : 1.06
-Release  : 7
+Release  : 8
 URL      : https://cpan.metacpan.org/authors/id/P/PE/PETDANCE/Test-Memory-Cycle-1.06.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/P/PE/PETDANCE/Test-Memory-Cycle-1.06.tar.gz
 Summary  : "Verifies code hasn't left circular references"
@@ -99,4 +99,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.3/Test/Memory/Cycle.pm
+/usr/lib/perl5/vendor_perl/5.32.1/Test/Memory/Cycle.pm
